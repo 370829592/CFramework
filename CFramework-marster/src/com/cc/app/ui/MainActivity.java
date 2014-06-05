@@ -1,15 +1,18 @@
-package com.cc.ui;
+package com.cc.app.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+import com.cc.app.R;
+import com.cc.app.ui.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		int a = 1/0;
 	}
 
 

@@ -12,6 +12,5 @@
     <string name="app_error">应用程序错误</string>
     <string name="app_error_message">很抱歉，应用程序出现错误，即将退出。</string>
 
-    
      <string name="sure">确定</string>
 </resources>

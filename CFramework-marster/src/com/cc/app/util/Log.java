@@ -1,57 +1,58 @@
 package com.cc.app.util;
 
+import com.cc.app.AppConfig;
+
 public class Log {
-	public static boolean isDebug = false;
 	
 	private static final String tag = "cframeinfo";
 
 	public static void v(String msg) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.v(tag, getMsg(msg));
 	}
 
 	public static void v( String msg, Throwable t) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.v(tag, getMsg(msg), t);
 	}
 
 	public static void d( String msg) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.d(tag, getMsg(msg));
 	}
 
 	public static void d( String msg, Throwable t) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.d(tag, getMsg(msg), t);
 	}
 
 	public static void i(String msg) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.i(tag, getMsg(msg));
 	}
 
 	public static void i( String msg, Throwable t) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.i(tag, getMsg(msg), t);
 	}
 
 	public static void w( String msg) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.w(tag, getMsg(msg));
 	}
 
 	public static void w(String msg, Throwable t) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.w(tag, getMsg(msg), t);
 	}
 
 	public static void e(String msg) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.e(tag, getMsg(msg));
 	}
 
 	public static void e(String msg, Throwable t) {
-		if (isDebug)
+		if (AppConfig.debug)
 			android.util.Log.e(tag, getMsg(msg), t);
 	}
 	

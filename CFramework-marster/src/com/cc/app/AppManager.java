@@ -2,6 +2,8 @@ package com.cc.app;
 
 import java.util.Stack;
 
+import com.cc.app.api.PushManager;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -93,6 +95,7 @@ public class AppManager {
 	public void appExit(Context context){
 		try {
 			finishAllActivity();
+			PushManager.getInstance(context).close();
 			ActivityManager activityMgr= (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 			activityMgr.restartPackage(context.getPackageName());
 			System.exit(0);

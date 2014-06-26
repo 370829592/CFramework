@@ -1,0 +1,27 @@
+# view AndroidManifest.xml #generated:25
+-keep class com.cc.app.AppContext { <init>(...); }
+
+# view AndroidManifest.xml #generated:30
+-keep class com.cc.app.AppStart { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class com.cc.app.ui.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:58
+-keep class com.umeng.message.NotificationProxyBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:62
+-keep class com.umeng.message.RegistrationReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:72
+-keep class com.umeng.message.UmengBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:106
+-keep class com.umeng.message.UmengIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class com.umeng.message.UmengService { <init>(...); }
+
+# view AndroidManifest.xml #generated:98
+-keep class org.android.agoo.service.ElectionService { <init>(...); }
+

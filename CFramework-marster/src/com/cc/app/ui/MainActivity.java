@@ -12,6 +12,7 @@ import com.cc.app.AppManager;
 import com.cc.app.R;
 import com.cc.app.api.AnalyticsUtils;
 import com.cc.app.api.PushManager;
+import com.cc.app.api.UpdateUtils;
 import com.cc.app.http.CHttpClient;
 import com.cc.app.http.HttpStringResponseListener;
 import com.cc.app.ui.base.BaseActivity;
@@ -26,6 +27,9 @@ public class MainActivity extends BaseActivity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		UpdateUtils.check(this);
+		
 		
 		ImageView iv = (ImageView)findViewById(R.id.iv_head);
 
@@ -45,7 +49,6 @@ public class MainActivity extends BaseActivity {
 			}
 		});
 		client.loadBitmap(iv, "http://img0.bdstatic.com/img/image/shouye/bzxgmzfb.jpg");
-		
 		
 		TextView tv = (TextView)findViewById(R.id.tv_01);
 		TextPaint tp = tv.getPaint();

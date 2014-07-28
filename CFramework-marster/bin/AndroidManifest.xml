@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cc.app"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -54,6 +54,16 @@
             android:value="58eb5f90217ba7f05e2c98caf4d61465" >
         </meta-data>
 
+        <!-- 友盟自动更新组件 -->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
         <!-- 友盟push消息组件 -->
         <receiver
             android:name="com.umeng.message.NotificationProxyBroadcastReceiver"

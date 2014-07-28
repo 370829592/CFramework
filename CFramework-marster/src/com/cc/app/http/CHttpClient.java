@@ -44,6 +44,7 @@ public class CHttpClient {
 		this.mContext = context;
 		mImageLoader = new ImageLoader(mRequestQueue, new BitmapCache());
 	}
+	
 
 	/**
 	 * get方法获取字符串返回值
@@ -233,7 +234,8 @@ public class CHttpClient {
 	 * 取消本队列所有网络请求
 	 */
 	public void cancelAll() {
-		mRequestQueue.cancelAll(mContext);
+		mRequestQueue.cancelAll();
+		
 	}
 
 	public RequestQueue getRequestQueue() {

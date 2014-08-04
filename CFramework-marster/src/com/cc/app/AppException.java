@@ -297,7 +297,7 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
 		exceptionStr.append("Version: " + pinfo.versionName + "("
 				+ pinfo.versionCode + ")\n");
 		exceptionStr.append("Android: " + android.os.Build.VERSION.RELEASE
-				+ "(" + android.os.Build.MODEL + ")\n");
+				+ "("+ android.os.Build.BRAND + android.os.Build.MODEL + ")\n");
 		return exceptionStr;
 	}
 

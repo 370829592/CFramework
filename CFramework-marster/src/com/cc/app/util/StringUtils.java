@@ -18,97 +18,9 @@ import java.util.regex.Pattern;
 public class StringUtils {
 	private final static Pattern emailer = Pattern.compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
 	
-	private final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>(){
-		protected SimpleDateFormat initialValue() {
-			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		};
-	};
-	private final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
-		@Override
-		protected SimpleDateFormat initialValue() {
-			return new SimpleDateFormat("yyyy-MM-dd");
-		}
-	};
+	public static final String URL_REG_EXPRESSION = "^(https?://)?([a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+)+(/*[A-Za-z0-9/\\-_&:?\\+=//.%]*)*";
 	
-	/**
-	 * 将字符串转换为日期类型
-	 * @param date
-	 * @return
-	 */
-	public static Date toDate(String date){
-		try {
-			return dateFormater.get().parse(date);
-		} catch (ParseException e) {
-			return null;
-		}
-	}
 	
-	/**
-	 * 以友好的方式显示时间
-	 * @param date
-	 * @return
-	 */
-	public static String friendlyTime(String date){
-		Date time = toDate(date);
-		if(time == null){
-			return "Unknown";
-		}
-		String ftime = "";
-		Calendar cal = Calendar.getInstance();
-		String curDate = dateFormater2.get().format(cal.getTime());
-		String paramDate = dateFormater2.get().format(time);
-		if(curDate.equals(paramDate)){
-			int hour = (int)((cal.getTimeInMillis() - time.getTime())/3600000);
-			if(hour == 0){
-				ftime = Math.max((cal.getTimeInMillis()-time.getTime())/60000, 1)+"分钟前";
-			}else{
-				ftime = hour+"小时前";
-			}
-			return ftime;
-		}
-		
-		long lt = time.getTime()/86400000;
-		long ct = cal.getTimeInMillis()/86400000;
-		int days = (int)(ct - lt);
-		if(days == 0){
-			int hour = (int)((cal.getTimeInMillis() - time.getTime())/3600000);
-			if(hour == 0)
-				ftime = Math.max((cal.getTimeInMillis() - time.getTime()) / 60000,1)+"分钟前";
-			else 
-				ftime = hour+"小时前";
-		}
-		else if(days == 1){
-			ftime = "昨天";
-		}
-		else if(days == 2){
-			ftime = "前天";
-		}
-		else if(days > 2 && days <= 10){ 
-			ftime = days+"天前";			
-		}
-		else if(days > 10){			
-			ftime = dateFormater2.get().format(time);
-		}
-		return ftime;
-	}
-	/**
-	 * 判断给定字符串时间是否为今日
-	 * @param date
-	 * @return
-	 */
-	public static boolean isToday(String date){
-		boolean b = false;
-		Date time = toDate(date);
-		Date today = new Date();
-		if(time != null){
-			String nowDate = dateFormater2.get().format(today);
-			String timeDate = dateFormater2.get().format(time);
-			if(nowDate.equals(timeDate)){
-				b = true;
-			}
-		}
-		return b;
-	}
 	/**
 	 * 判断给定字符串是否空白串。
 	 * 空白串是指由空格、制表符、回车符、换行符组成的字符串
@@ -139,6 +51,13 @@ public class StringUtils {
 		if(email == null || email.trim().length()==0) 
 			return false;
 	    return emailer.matcher(email).matches();
+	}
+	
+	public static boolean isUrl(String s) {
+		if (s == null) {
+			return false;
+		}
+		return Pattern.matches(URL_REG_EXPRESSION, s);
 	}
 	/**
 	 * 根据字符串id 获取字符串
